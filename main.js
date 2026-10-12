@@ -63,21 +63,36 @@
     requestAnimationFrame(step);
   }
 
-  /* ── Reveal + chart + counters on scroll ──────────── */
-  var targets = document.querySelectorAll('.reveal, .chart, .incident, .tele, .dash, .ship__stats');
-  if ('IntersectionObserver' in window && !reduce) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        e.target.classList.add('is-in');
-        e.target.querySelectorAll('[data-count]').forEach(countUp);
-        io.unobserve(e.target);
-      });
-    }, { threshold: 0.18 });
-    targets.forEach(function (t) { io.observe(t); });
-  } else {
-    targets.forEach(function (t) { t.classList.add('is-in'); });
+  /* ── Reveal + chart + counters on scroll ──────────────
+     Fails open: the observer is only the fast path. sweep() reveals anything
+     whose top has entered the viewport, so content never stays hidden. */
+  var targets = Array.prototype.slice.call(document.querySelectorAll('.reveal, .chart, .incident, .tele, .dash, .ship__stats'));
+  var io = null;
+  function show(el) {
+    if (el.classList.contains('is-in')) return;
+    el.classList.add('is-in');
+    el.querySelectorAll('[data-count]').forEach(countUp);
+    if (io) io.unobserve(el);
   }
+  function sweep() {
+    var edge = innerHeight * 0.92;
+    targets = targets.filter(function (t) {
+      if (t.getBoundingClientRect().top < edge) { show(t); return false; }
+      return true;
+    });
+  }
+  if ('IntersectionObserver' in window && !reduce) {
+    io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) show(e.target); });
+    }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+    targets.forEach(function (t) { io.observe(t); });
+    sweep();
+    addEventListener('load', sweep);
+    addEventListener('resize', sweep);
+  } else {
+    targets.forEach(show); targets = [];
+  }
+  addEventListener('beforeprint', function () { targets.forEach(show); targets = []; });
 
   /* ── Odometer + progress bar + active nav ─────────── */
   var odo = document.getElementById('odo');
@@ -88,6 +103,7 @@
     return document.querySelector(a.getAttribute('href'));
   });
   var ticking = false;
+  if (!odo || !bar) return;
 
   function onScroll() {
     var max = document.documentElement.scrollHeight - innerHeight;
@@ -98,6 +114,7 @@
     var current = -1;
     sections.forEach(function (s, i) { if (s && s.getBoundingClientRect().top < innerHeight * 0.4) current = i; });
     navLinks.forEach(function (a, i) { a.classList.toggle('is-on', i === current); });
+    if (targets.length) sweep();
     ticking = false;
   }
   addEventListener('scroll', function () {

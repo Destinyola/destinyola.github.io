@@ -48,12 +48,17 @@
   function fmt(v, dec) {
     return v.toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec });
   }
+  var printing = false;
+  function finalCount(el) {
+    el.textContent = fmt(parseFloat(el.dataset.count), parseInt(el.dataset.dec || '0', 10));
+  }
   function countUp(el) {
     var target = parseFloat(el.dataset.count);
     var dec = parseInt(el.dataset.dec || '0', 10);
-    if (reduce) { el.textContent = fmt(target, dec); return; }
+    if (reduce || printing) { finalCount(el); return; }
     var t0 = null, dur = 1400;
     function step(t) {
+      if (printing) { finalCount(el); return; }
       if (t0 === null) t0 = t;
       var p = Math.min((t - t0) / dur, 1);
       var eased = 1 - Math.pow(1 - p, 3);
@@ -92,7 +97,12 @@
   } else {
     targets.forEach(show); targets = [];
   }
-  addEventListener('beforeprint', function () { targets.forEach(show); targets = []; });
+  addEventListener('beforeprint', function () {
+    printing = true;
+    targets.forEach(show); targets = [];
+    document.querySelectorAll('[data-count]').forEach(finalCount);
+  });
+  addEventListener('afterprint', function () { printing = false; });
 
   /* ── Odometer + progress bar + active nav ─────────── */
   var odo = document.getElementById('odo');

